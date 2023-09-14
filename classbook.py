@@ -1,10 +1,3 @@
-# Код требует доработки (и я прошу его туда отправить): перегрузка метода __str__ пока не реализована;
-# не реализованы методы сравнения и средних оценок (задание 4).
-#
-# Была проблема со словарём оценок для лекторов: если словарь объявлять внутри класса Lecturer (без self),
-# то у лекторов будет один словарь на двоих. Можно ли было реализовать решение как-то иначе, без вынесения
-# атрибута grades в материнский класс?
-#
 
 class Mentor:
     def __init__(self, name, surname):
@@ -15,7 +8,14 @@ class Mentor:
 
 
 class Lecturer(Mentor):
-    pass
+       def ever_grade(self, grades):
+        return str(sum(self.grades) / len(self.grades))
+
+    def __str__(self):
+        name = f'Имя: = {self.name}'
+        surname = f'Фамилия: = {self.surname}'
+        mean = f'Сред: = {self.grade_lecturer(cool_lecturer.grades)}'
+        return name + ' ' + surname + ' ' + mean
 
 
 class Reviewer(Mentor):
@@ -29,7 +29,10 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
-
+     def __str__(self):
+        name = f'Имя: = {self.name}'
+        surname = f'Фамилия: = {self.surname}'
+        return name + ' ' + surname
 
 class Student:
     def __init__(self, name, surname, gender):
@@ -52,6 +55,13 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'
+     def __str__(self):
+        name = f'Имя: = {self.name}'
+        surname = f'Фамилия: = {self.surname}'
+        mean = f'Сред: = {self.rate_hw(best_student.grades)}'
+        in_prog = f'Изучает: ={self.courses_in_progress}'
+        finished = f'Изучил: ={self.finished_courses}' 
+        return name + ' ' + surname + ' ' + mean + ' ' + in_prog + ' ' + finished
 
 
 best_student_1 = Student('Иван', 'Иванов', 'мужской')
