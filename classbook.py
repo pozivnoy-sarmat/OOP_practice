@@ -1,4 +1,3 @@
-
 class Mentor:
     def __init__(self, name, surname):
         self.name = name
@@ -8,14 +7,15 @@ class Mentor:
 
 
 class Lecturer(Mentor):
-       def ever_grade(self, grades):
+    def ever_grade(self, grades):
         return str(sum(self.grades) / len(self.grades))
 
-    def __str__(self):
-        name = f'Имя: = {self.name}'
-        surname = f'Фамилия: = {self.surname}'
-        mean = f'Сред: = {self.grade_lecturer(cool_lecturer.grades)}'
-        return name + ' ' + surname + ' ' + mean
+
+def __str__(self):
+    name = f'Имя: = {self.name}'
+    surname = f'Фамилия: = {self.surname}'
+    mean = f'Сред: = {self.grade_lecturer(cool_lecturer.grades)}'
+    return name + ' ' + surname + ' ' + mean
 
 
 class Reviewer(Mentor):
@@ -29,10 +29,12 @@ class Reviewer(Mentor):
                 student.grades[course] = [grade]
         else:
             return 'Ошибка'
-     def __str__(self):
+
+    def __str__(self):
         name = f'Имя: = {self.name}'
         surname = f'Фамилия: = {self.surname}'
         return name + ' ' + surname
+
 
 class Student:
     def __init__(self, name, surname, gender):
@@ -55,12 +57,13 @@ class Student:
                 lecturer.grades[course] = [grade]
         else:
             return 'Ошибка'
-     def __str__(self):
+
+    def __str__(self):
         name = f'Имя: = {self.name}'
         surname = f'Фамилия: = {self.surname}'
         mean = f'Сред: = {self.rate_hw(best_student.grades)}'
         in_prog = f'Изучает: ={self.courses_in_progress}'
-        finished = f'Изучил: ={self.finished_courses}' 
+        finished = f'Изучил: ={self.finished_courses}'
         return name + ' ' + surname + ' ' + mean + ' ' + in_prog + ' ' + finished
 
 
